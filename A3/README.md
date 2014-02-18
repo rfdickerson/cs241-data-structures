@@ -10,6 +10,32 @@ defining a node as having a north, south, east, and west neighbor as well as a
 value. The scaffold for your class should look like:
 
 
+# Recommended Setup
+
+First build the top row:
+
+Create a headNode
+temp = headNode
+for i from 0 to numberOfColumns:
+    newnode = a new Node
+    temp.east = newnode
+    newnode.west = temp
+    
+Next, add an additional row below this:
+
+for j from 0 to numberOfRows:
+    northNode = ?
+    currentNode = ?
+    for i from 0 to numberOfColumns:
+        newnode = a new Node
+        newnode.west = currentNode
+        currentNode.east = newnode
+        currentNode = currentNode.east
+        northNode = northNode.east
+        currentNode.north = northNode
+        northNode.south = currentNode
+
+
 # FAQ #
 
 * Can I change the Node class?
