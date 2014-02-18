@@ -31,8 +31,10 @@ class LinkedMatrix (object) :
         """returns a list of all the items in the matrix first across down then across repeat"""
         pass
 
-    def insertRow(self, rowIndex, defaultValue=self.defaultValue):
+    def insertRow(self, rowIndex, defaultValue=None):
         """inserts a row at the given index, shifting columns if necessary"""
+        if defaultValue is None:
+            defaultValue = self.defaultValue
         pass
 
     def insertColumn(self, colIndex, defaultValue=self.defaultValue):
