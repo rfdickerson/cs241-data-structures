@@ -14,15 +14,17 @@ value. The scaffold for your class should look like:
 
 First build the top row:
 
-Create a headNode
+`Create a headNode
 temp = headNode
 for i from 0 to numberOfColumns:
     newnode = a new Node
     temp.east = newnode
     newnode.west = temp
+ `
     
 Next, add an additional row below this:
 
+`
 for j from 0 to numberOfRows:
     northNode = ?
     currentNode = ?
@@ -34,7 +36,7 @@ for j from 0 to numberOfRows:
         northNode = northNode.east
         currentNode.north = northNode
         northNode.south = currentNode
-
+`
 
 # FAQ #
 
