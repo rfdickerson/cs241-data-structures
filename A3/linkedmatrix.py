@@ -13,7 +13,7 @@ class LinkedMatrix (object) :
         """ creates a new matrix with x columns and y rows with default value default value """
         self.headnode = None
         self.defaultValue = defaultValue
-        self.dimensions = (0,0)
+        self.dimensions = (x, y)
 
     def __str__(self):
         """ return the string representation of the matrix """
