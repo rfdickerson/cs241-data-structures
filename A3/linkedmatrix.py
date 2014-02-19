@@ -37,8 +37,10 @@ class LinkedMatrix (object) :
             defaultValue = self.defaultValue
         pass
 
-    def insertColumn(self, colIndex, defaultValue=self.defaultValue):
+    def insertColumn(self, colIndex, defaultValue=None):
         """inserts a column at the given index, shifting columns if necessary"""
+        if defaultValue is None:
+            defaultValue = self.defaultValue
         pass
 
     def removeRow(self, rowIndex):
