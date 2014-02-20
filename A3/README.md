@@ -17,26 +17,30 @@ First build the top row:
 ```python
 Create a headNode
 temp = headNode
-for i from 0 to numberOfColumns:
-    newnode = a new Node
-    temp.east = newnode
-    newnode.west = temp
+for i from 0 to numberOfColumns-1:
+    temp.east = new Node
+    temp.east.west = temp
+    temp = temp.east
 ```
     
 Next, add an additional row below this:
 
 ```python
-for j from 0 to numberOfRows:
-    northNode = ?
-    currentNode = ?
-    for i from 0 to numberOfColumns:
-        newnode = a new Node
-        newnode.west = currentNode
-        currentNode.east = newnode
-        currentNode = currentNode.east
-        northNode = northNode.east
-        currentNode.north = northNode
-        northNode.south = currentNode
+above = headNode
+rowhead = above
+for j from 0 to numberOfRows-1:
+    above = rowhead
+    above.south = new Node
+    above.sound.north = above
+    rowhead = above.south
+    temp = above.south
+    for i from 0 to numberOfColumns - 1 :
+        temp.east = a new Node
+        temp.east.west = temp
+        above = above.east
+        temp.east.north = above
+        above.south = temp.east
+        temp = temp.east
 ```
 
 # FAQ #
