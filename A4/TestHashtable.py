@@ -38,14 +38,16 @@ class TestHashtable(unittest.TestCase):
         for key, value in self.buildings.iteritems():
             q[key] = value
         for key in self.buildings:
-            self.assertIn(key, q, "membership in small hashtable: `in` keyword didn't work! check __contains__.\nkey:{}".format(key,))
+            self.assertIn(key, q, "membership in small hashtable: `in` keyword didn't work! check __contains__.\nkey:{}".format(key))
 
     def testLen(self):
         q = Hashtable(hashFunction, 1000)
         for key, value in self.buildings.iteritems():
             q[key] = value
-        self.assertLessEqual(len(q), len(self.buildings), "length: {} items is too many! check __len__.".format(len(q)))
-        self.assertGreaterEqual(len(q), len(self.buildings), "length: {} items is not enough! check __len__.".format(len(q)))
+        l = len(q)
+        self.assertIsInstance(l, type(len(self.buildings)), "length: incorrect type!")
+        self.assertLessEqual(l, len(self.buildings), "length: {} items is too many! expected {}; check __len__.".format(l, len(self.buildings)))
+        self.assertGreaterEqual(l, len(self.buildings), "length: {} items is not enough! expected {}; check __len__.".format(l, len(self.buildings)))
 
 if __name__ == "__main__":
     unittest.main()
