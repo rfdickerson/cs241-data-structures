@@ -15,7 +15,7 @@ class TestHashtable(unittest.TestCase):
             "LING" : "Tyler",
             "GERM" : "Washington",
         }
-        self.doubles = { n : n + n for n in range(193) }
+        self.doubles = { str(n) : n + n for n in range(193) }
         self.testingFunction = lambda k, n: sum(map(ord, str(k))) % n
 
     def testSmallGetSetWithoutFunction(self):
