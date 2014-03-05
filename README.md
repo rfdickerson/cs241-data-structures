@@ -1,6 +1,8 @@
 CS241 - Data Structures
 =====
 
+***Professor Robert F Dickerson***
+
 This course is a continuation of CS 141: Computation Problem Solving. The major topics of the course
 include data abstraction, data structures, and algorithms. Common data structures and algorithms, including
 arrays, lists, maps, stacks, queues, hash tables, trees, heaps, searching, sorting, and recursion, will be
