@@ -1,78 +1,80 @@
-Line Segment ADT
+# Line Segment
 
-Due Date: at 5pm on January 28, 2013
 
-Deliverables: point.py and linesegment.py.
+***Deliverables: point.py and linesegment.py.***
+
+## Introduction
 
 A line segment is a straight line bounded by two endpoints defined in the two-dimensional Cartesian coordinate system. The operations that can be performed on a line segment are defined below:
 
  
-
+```python
 LineSegment(pointA, pointB)
 
-Creates a new line segment defined by the two Point objects.
+"""Creates a new line segment defined by the two Point objects."""
 
  
 
 endPointA()
 
-Returns the first endpoint of the line segment.
+""" Returns the first endpoint of the line segment."""
 
  
 
 endPointB()
 
-Returns the second endpoint of the line segment.
+""" Returns the second endpoint of the line segment."""
 
  
 
 length()
 
-Returns the length of the line segment given as the Euclidean distance between the two endpoints.
+""" Returns the length of the line segment given as the Euclidean distance between the two endpoints."""
 
  
 
 isVertical()
 
-Returns a boolean indicating if the line segment is parallel to the y-axis.
+""" Returns a boolean indicating if the line segment is parallel to the y-axis."""
 
  
 
 isHorizontal()
 
-Returns a boolean indicating if the line segment is parallel to the x-axis.
+""" Returns a boolean indicating if the line segment is parallel to the x-axis."""
 
  
 
 isParallel(otherLine)
 
-Returns a boolean indicating if the line segment is parallel to the otherLine line segment.
+""" Returns a boolean indicating if the line segment is parallel to the otherLine line segment."""
 
  
 
 isPerpendicular(otherLine)
 
-Returns a boolean indicating if the line segment is perpendicular to the otherLine line segment.
+""" Returns a boolean indicating if the line segment is perpendicular to the otherLine line segment."""
 
  
 
 slope()
 
-Returns the slope of the line segment given as the rise over the run. If the segment is vertical, return False.
+""" Returns the slope of the line segment given as the rise over the run. If the segment is vertical, return False."""
 
  
 
 midpoint()
 
-Returns the midpoint of the line segment as a Point object.
+""" Returns the midpoint of the line segment as a Point object."""
 
  
 
 __str__()
 
-Returns a string representation of the line segment in the format (Ax, Ay)#(Bx, By).
-
+""" Returns a string representation of the line segment in the format (Ax, Ay)#(Bx, By)."""
+```
  
+## Implementation Tips 
 
 In your Point class, overload the method __eq__ and define behavior so that the 2 points are compared in that their x and y components are equivalent. The default equals behavior would check if the 2 variables are pointing to the same instance in memory.
 Implementation
@@ -90,7 +92,7 @@ You will need to use the Point class described in the lectures and in the bookâ€
 The linesegment.py module should only contain the implementation of the class definition. It should not contain any other statements or global variables outside of the class.
 
  
-Testing 
+## Testing 
 
 Download the UnitTest for the assignment.
 
