@@ -1,5 +1,10 @@
 # Hashtable
 
+Due: March 25, 11:59pm
+Deliverables: 
++ hashtable.py
++ image or pdf for your visualization
+
 ## Overview
 
 The hash table is the data structure used to implement an associative array which
@@ -36,8 +41,6 @@ Next, we will plot the number of elements that are stored for each of the bucket
 + Dump the results to a new datafile - the bucket ID and the count
 + Use GNUplot, Matlab, R, Excel, SPSS, etc to load the file and render a barplot (histogram) for the hashtable.
 
-
-
 ![hashtable density](https://raw.github.com/rfdickerson/CS241/master/A4/output.png "Hash Table Density")
 
-## Help Resources
+
