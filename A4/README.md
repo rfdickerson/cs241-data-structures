@@ -25,6 +25,8 @@ a Dictionary with most of the methods and operator syntax.
 
 Refer to the template in hashtabletemplate.py
 
-## Implementation Tips
+## Visualization for the Hash Table density
+
+![hashtable density](https://github.com/rfdickerson/CS241/blob/master/A4/output.png)
 
 ## Help Resources
