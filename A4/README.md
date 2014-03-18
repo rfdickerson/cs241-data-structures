@@ -27,6 +27,6 @@ Refer to the template in hashtabletemplate.py
 
 ## Visualization for the Hash Table density
 
-![hashtable density](https://github.com/rfdickerson/CS241/blob/master/A4/output.png)
+![hashtable density](https://github.com/rfdickerson/CS241/blob/master/A4/output.png "Hash Table Density")
 
 ## Help Resources
