@@ -1,9 +1,7 @@
 # Hashtable
 
-Due: March 25, 11:59pm
-Deliverables: 
-+ hashtable.py
-+ image or pdf for your visualization
++ Due: March 25, 11:59pm
++ Deliverables: hashtable.py and visualization (image or pdf)
 
 ## Overview
 
