@@ -27,6 +27,17 @@ Refer to the template in hashtabletemplate.py
 
 ## Visualization for the Hash Table density
 
+Next, we will plot the number of elements that are stored for each of the buckets in the hash table. 
+
++ Create a new Python source file
++ Use open to open the uscities.txt file
++ Iterate through each of the city entries, split base of commas, and insert the second field (the city name) as the key. You can set the value to anything you want like the lat and lng.
++ Use your getNumBuckets function to allow you to iterate over each of the buckets and return the size
++ Dump the results to a new datafile - the bucket ID and the count
++ Use GNUplot, Matlab, R, Excel, SPSS, etc to load the file and render a barplot (histogram) for the hashtable.
+
+
+
 ![hashtable density](https://raw.github.com/rfdickerson/CS241/master/A4/output.png "Hash Table Density")
 
 ## Help Resources
