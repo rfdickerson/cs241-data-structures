@@ -12,6 +12,8 @@ state for the puzzle and a goal state, and your solver will test all possible
 strategies for solving the puzzle, and return a step by step process for
 solving the puzzle.
 
+![eight puzzle](8-puzzle-states.png)
+
 # Specification
 
 The template for your puzzle is in eightpuzzle.py. There is a BadMoveException
