@@ -65,6 +65,7 @@ class PuzzleSolver (object):
     For details, see: https://github.com/rfdickerson/CS241/tree/master/A5'''
 
     def __init__(self, initial, goal):
+        assert initial.dimensions == goal.dimensions, "initial and goal dimensions must be the same"
         self.initial = initial
         self.goal = goal
 
