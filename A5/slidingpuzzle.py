@@ -38,14 +38,14 @@ class PuzzleState (object):
         below it are flipped.'''
         pass
 
-    def moveRight(self):
-        '''Returns a new instance of PuzzleState where the gap and the value
-        to its right it are flipped.'''
-        pass
-
     def moveLeft(self):
         '''Returns a new instance of PuzzleState where the gap and the value
-        to its left it are flipped.'''
+        to its left are flipped.'''
+        pass
+
+    def moveRight(self):
+        '''Returns a new instance of PuzzleState where the gap and the value
+        to its right are flipped.'''
         pass
 
     def __str__(self):
@@ -92,6 +92,7 @@ class PuzzleSolver (object):
 
         # [1:] slicing omits the lastMove of the initial state, which is None
         return [ state.lastMove for state in solution[1:] ]
+
 
 if __name__ == "__main__":
     dimensions = (3, 3)
