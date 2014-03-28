@@ -4,6 +4,9 @@ from slidingpuzzle import BadMoveException, PuzzleState, PuzzleSolver
 import unittest
 
 class TestPuzzleState(unittest.TestCase):
+    '''
+    Performs logical tests on PuzzleState
+    '''
 
     def setUp(self):
         self.eightPuzzle = PuzzleState(
@@ -72,6 +75,43 @@ Expected index: {}'''
         observedIndex = self.eightPuzzle.coordToIndex(coord)
         message = m.format(coord, observedIndex, expectedIndex)
         self.assertEquals(observedIndex, expectedIndex, message)
+
+    def testIndexToCoord(self):
+        m = '''Wrong coordinate given from index. Check indexToCoord() method.
+
+Index given: {}
+Observed coordinate: {}
+Expected coordinate: {}'''
+        index = 3
+        expectedCoord = (0, 1)
+        observedCoord = self.eightPuzzle.indexToCoord(index)
+        message = m.format(index, observedCoord, expectedCoord)
+        self.assertEquals(observedCoord, expectedCoord, message)
+
+        index = 1
+        expectedCoord = (1, 0)
+        observedCoord = self.eightPuzzle.indexToCoord(index)
+        message = m.format(index, observedCoord, expectedCoord)
+        self.assertEquals(observedCoord, expectedCoord, message)
+
+        index = 0
+        expectedCoord = (0, 0)
+        observedCoord = self.eightPuzzle.indexToCoord(index)
+        message = m.format(index, observedCoord, expectedCoord)
+        self.assertEquals(observedCoord, expectedCoord, message)
+
+        index = 8
+        expectedCoord = (2, 2)
+        observedCoord = self.eightPuzzle.indexToCoord(index)
+        message = m.format(index, observedCoord, expectedCoord)
+        self.assertEquals(observedCoord, expectedCoord, message)
+
+        index = 2
+        expectedCoord = (2, 0)
+        observedCoord = self.eightPuzzle.indexToCoord(index)
+        message = m.format(index, observedCoord, expectedCoord)
+        self.assertEquals(observedCoord, expectedCoord, message)
+
 
 class TestPuzzleSolver(unittest.TestCase):
 
