@@ -222,6 +222,17 @@ Expected solution chain:
         message = m_full.format(self.eightInitial, observedPrintable, expectedPrintable)
         self.assertEquals(observedElements, expectedElements, message)
 
+    def testMovesToSolve(self):
+        m = '''PuzzleSolver gave the wrong moves, or I didn't recognise them as English directions. Hint: I'll take north/south/east/west or up/down/left/right.
+
+Observed moves list: {}'''
+        expectedDirections = (
+                ['right', 'up', 'left', 'up', 'left'],
+                ['east', 'north', 'west', 'north', 'west'])
+        observedDirections = [ x.lower() for x in self.eightSolver.movesToSolve() ]
+        message = m.format(observedDirections)
+        self.assertIn(observedDirections, expectedDirections, message)
+
 
 if __name__ == "__main__":
     import sys
