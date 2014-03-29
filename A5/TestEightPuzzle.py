@@ -112,6 +112,68 @@ Expected coordinate: {}'''
         message = m.format(index, observedCoord, expectedCoord)
         self.assertEquals(observedCoord, expectedCoord, message)
 
+    def testEquals(self):
+        m = "PuzzleState did not equal itself! Check your __eq__ method.\n"
+        self.assertEquals(self.eightPuzzle, self.eightPuzzle, m)
+
+    def testStr(self):
+        m = "Something went wrong when printing PuzzleState! Check your __str__ method.\n\nPrint call output: {}"
+        observedVisual = str(self.eightPuzzle)
+        self.assertIsInstance(observedVisual, str, m.format(observedVisual))
+
+    def testMoveFunctions(self):
+        controlState = PuzzleState(
+                dimensions=(3, 3),
+                gamestate=[1, 2, 3, 4, None, 5, 6, 7, 8],
+                parent=None,
+                lastMove=None)
+        m = '''Move {0} returned an incorrect PuzzleState (or None). Check your move{0} method.
+
+Input:
+{1}
+
+Observed:
+{2}
+
+Expected:
+{3}'''
+
+        upState = PuzzleState(
+                dimensions=(3, 3),
+                gamestate=[1, None, 3, 4, 2, 5, 6, 7, 8],
+                parent=None,
+                lastMove=None)
+        observedUpState = controlState.moveUp()
+        message = m.format("Up", controlState, observedUpState, upState)
+        self.assertEquals(upState, observedUpState, message)
+
+        downState = PuzzleState(
+                dimensions=(3, 3),
+                gamestate=[1, 2, 3, 4, 7, 5, 6, None, 8],
+                parent=None,
+                lastMove=None)
+        observedDownState = controlState.moveDown()
+        message = m.format("Down", controlState, observedDownState, downState)
+        self.assertEquals(downState, observedDownState, message)
+
+        leftState = PuzzleState(
+                dimensions=(3, 3),
+                gamestate=[1, 2, 3, None, 4, 5, 6, 7, 8],
+                parent=None,
+                lastMove=None)
+        observedLeftState = controlState.moveLeft()
+        message = m.format("Left", controlState, observedLeftState, leftState)
+        self.assertEquals(leftState, observedLeftState, message)
+
+        rightState = PuzzleState(
+                dimensions=(3, 3),
+                gamestate=[1, 2, 3, 4, 5, None, 6, 7, 8],
+                parent=None,
+                lastMove=None)
+        observedRightState = controlState.moveRight()
+        message = m.format("Right", controlState, observedRightState, rightState)
+        self.assertEquals(rightState, observedRightState, message)
+
 
 class TestPuzzleSolver(unittest.TestCase):
 
