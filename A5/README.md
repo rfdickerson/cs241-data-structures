@@ -45,7 +45,7 @@ None, therefore you have found the initial state. Print the result.
 
 - Not every initial state can be traced to a solution; in fact, only half the possible combinations of initial state and final state can be solved by human or machine. This means if you want to test your own implementation without the tests, you should create initial states and solutions that you already know work. Otherwise, you'll be wondering why it's taking so long. For more information, see [this 1879 article][AJM] in the _American Journal of Mathematics._
 - Make sure you use a flattened list to store the values, not a LinkedMatrix or something else crazy.
-- Indexes are zero-indexed tuples in the form `(row, column)`.
+- Indexes are zero-indexed tuples in the form `(column, row)`.
 - Don't be afraid to use helper functions! It's not at all a requirement, but Python's `@staticmethod` function decorator might help if you're feeling adventurous.
 - Make sure you test for illegal moves and `raise BadMoveException` where applicable.
 
