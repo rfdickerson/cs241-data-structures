@@ -237,6 +237,31 @@ Observed moves list:
         message = m.format(rawMoves)
         self.assertIn(observedDirections, expectedDirections, message)
 
+    def testAlreadySolvedMoves(self):
+        m = '''PuzzleSolver did something unexpected when the initial and goal PuzzleStates are the same.
+
+These tests expect an empty list of moves or None to be returned from movesToSolve() in this case.
+
+Observed moves list:
+{}'''
+
+        expectedMoves = ([], None)
+        observedMoves = self.redundantSolver.movesToSolve()
+        message = m.format(observedMoves)
+        self.assertIn(observedMoves, expectedMoves, message)
+
+    def testAlreadySolvedSolve(self):
+        m = '''PuzzleSolver did something unexpected when the initial and goal PuzzleStates are the same.
+
+These tests expect solve() to return a list containing only one item: the initial/goal state.
+
+Observed solution:
+{}'''
+        expectedSoln = [ self.eightInitial ]
+        observedSoln = self.redundantSolver.solve()
+        message = m.format("\n".join([ str(x) for x in observedSoln ]))
+        self.assertEquals(observedSoln, expectedSoln, message)
+
 
 if __name__ == "__main__":
     import sys
