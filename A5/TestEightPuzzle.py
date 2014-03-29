@@ -181,6 +181,7 @@ class TestPuzzleSolver(unittest.TestCase):
         self.eightInitial = PuzzleState((3, 3), [2,8,3,1,6,4,7,None,5], None, None)
         self.eightGoal = PuzzleState((3, 3), [None,2,3,1,8,6,7,5,4], None, None)
         self.eightSolver = PuzzleSolver(self.eightInitial, self.eightGoal)
+        self.redundantSolver = PuzzleSolver(self.eightInitial, self.eightInitial)
 
     def testSolve(self):
         expectedElements = [
@@ -229,8 +230,9 @@ Observed moves list: {}'''
         expectedDirections = (
                 ['right', 'up', 'left', 'up', 'left'],
                 ['east', 'north', 'west', 'north', 'west'])
-        observedDirections = [ x.lower() for x in self.eightSolver.movesToSolve() ]
-        message = m.format(observedDirections)
+        rawMoves = self.eightSolver.movesToSolve()
+        observedDirections = [ x.lower() for x in rawMoves ]
+        message = m.format(rawMoves)
         self.assertIn(observedDirections, expectedDirections, message)
 
 
