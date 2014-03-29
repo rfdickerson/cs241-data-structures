@@ -178,10 +178,35 @@ Expected:
 class TestPuzzleSolver(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.eightInitial = PuzzleState((3, 3), [2,8,3,1,6,4,7,None,5], None, None)
+        self.eightGoal = PuzzleState((3, 3), [None,2,3,1,8,6,7,5,4], None, None)
+        self.eightSolver = PuzzleSolver(self.eightInitial, self.eightGoal)
 
-    def testArbitraryTestcase(self):
-        self.assertEquals(True, True, "message")
+    def testSolve(self):
+        expectedElements = [
+                [2, 8, 3, 1, 6, 4, 7, None, 5],
+                [2, 8, 3, 1, 6, 4, 7, 5, None],
+                [2, 8, 3, 1, 6, None, 7, 5, 4],
+                [2, 8, 3, 1, None, 6, 7, 5, 4],
+                [2, None, 3, 1, 8, 6, 7, 5, 4],
+                [None, 2, 3, 1, 8, 6, 7, 5, 4]]
+        observedStates = self.eightSolver.solve()
+        observedElements = [ x.gamestate for x in observedStates ]
+
+        m = '''PuzzleSolver gives the wrong solution chain! Check your solve() method.
+
+Input:
+{}
+
+Observed solution chain:
+{}
+
+Expected solution chain:
+{}'''
+        expectedPrintable = '\n'.join([ str(x) for x in expectedElements ])
+        observedPrintable = '\n'.join([ str(x) for x in observedElements ])
+        message = m.format(self.eightInitial, observedPrintable, expectedPrintable)
+        self.assertEquals(observedElements, expectedElements, message)
 
 
 if __name__ == "__main__":
