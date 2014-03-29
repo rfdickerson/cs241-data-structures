@@ -70,8 +70,10 @@ class PuzzleSolver (object):
         self.goal = goal
 
     def solve(self):
-        '''Solves the puzzle and returns the PuzzleStates used to get from the
-        initial state to the goal state.
+        '''Solves the puzzle and returns a list of the PuzzleStates used to get
+        from the initial state to the goal state. The 0th element of the list
+        should be the initial state stored at self.initial, and the last
+        element of the list should be the goal state stored at self.goal.
         
         Tips! (er, requirements...)
         - Use deque from the collections module to keep track of pending
