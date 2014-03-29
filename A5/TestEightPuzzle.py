@@ -117,7 +117,8 @@ Expected coordinate: {}'''
         self.assertEquals(self.eightPuzzle, self.eightPuzzle, m)
 
     def testStr(self):
-        m = "Something went wrong when printing PuzzleState! Check your __str__ method.\n\nPrint call output: {}"
+        m = '''Something went wrong when printing PuzzleState! Check your __str__ method.\n\nPrint call output:
+{}'''
         observedVisual = str(self.eightPuzzle)
         self.assertIsInstance(observedVisual, str, m.format(observedVisual))
 
@@ -224,9 +225,10 @@ Expected solution chain:
         self.assertEquals(observedElements, expectedElements, message)
 
     def testMovesToSolve(self):
-        m = '''PuzzleSolver gave the wrong moves, or I didn't recognise them as English directions. Hint: I'll take north/south/east/west or up/down/left/right.
+        m = '''PuzzleSolver gave the wrong moves, or I couldn't recognise them as English directions. Hint: these tests take north/south/east/west or up/down/left/right and don't care about capitalization.
 
-Observed moves list: {}'''
+Observed moves list:
+{}'''
         expectedDirections = (
                 ['right', 'up', 'left', 'up', 'left'],
                 ['east', 'north', 'west', 'north', 'west'])
