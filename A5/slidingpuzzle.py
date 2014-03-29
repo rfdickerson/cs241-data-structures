@@ -87,9 +87,9 @@ class PuzzleSolver (object):
         pass
 
     def movesToSolve(self):
-        '''Returns a list of strings representing the directions to move the
-        blank space in order to solve the puzzle. Depends on the solve method,
-        above.'''
+        '''Returns a list of strings (in English) representing the directions
+        to move the blank space in order to solve the puzzle. Depends on the
+        solve method, above.'''
 
         solution = self.solve()
 

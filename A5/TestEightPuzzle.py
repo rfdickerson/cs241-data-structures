@@ -193,7 +193,17 @@ class TestPuzzleSolver(unittest.TestCase):
         observedStates = self.eightSolver.solve()
         observedElements = [ x.gamestate for x in observedStates ]
 
-        m = '''PuzzleSolver gives the wrong solution chain! Check your solve() method.
+        m_solution = '''PuzzleSolver ultimately arrives at the wrong solution! Check your solve() method.
+
+Input:
+{}
+
+Observed last element of solution chain
+{}
+
+Expected last element of solution chain:
+{}'''
+        m_full = '''PuzzleSolver gives the wrong solution chain! Check your solve() method.
 
 Input:
 {}
@@ -205,7 +215,11 @@ Expected solution chain:
 {}'''
         expectedPrintable = '\n'.join([ str(x) for x in expectedElements ])
         observedPrintable = '\n'.join([ str(x) for x in observedElements ])
-        message = m.format(self.eightInitial, observedPrintable, expectedPrintable)
+
+        message = m_solution.format(self.eightInitial, observedPrintable, expectedPrintable)
+        self.assertEquals(observedElements[-1], expectedElements[-1], message)
+
+        message = m_full.format(self.eightInitial, observedPrintable, expectedPrintable)
         self.assertEquals(observedElements, expectedElements, message)
 
 
