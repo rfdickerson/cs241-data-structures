@@ -123,10 +123,14 @@ class TestPuzzleSolver(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    import sys
+
     # Load both test suites
     stateTests = unittest.TestLoader().loadTestsFromTestCase(TestPuzzleState)
     solverTests = unittest.TestLoader().loadTestsFromTestCase(TestPuzzleSolver)
 
     # Run both test suites. Default to running more verbose tests.
-    unittest.TextTestRunner(verbosity=2).run(stateTests)
-    unittest.TextTestRunner(verbosity=2).run(solverTests)
+    print "\n\n", '~' * 5, "TestPuzzleState", '~' * 5
+    unittest.TextTestRunner(verbosity=2, stream=sys.stdout).run(stateTests)
+    print "\n\n", '~' * 5, "TestPuzzleSolver", '~' * 5
+    unittest.TextTestRunner(verbosity=2, stream=sys.stdout).run(solverTests)
