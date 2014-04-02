@@ -18,6 +18,20 @@ def binarysearch(value, mylist):
         return None
     
     
+def recbinarysearch(value, mylist, left, right):
+    mid = (left + right) // 2
+    if left > right:
+        return None
+    elif mylist[mid] < value:
+        return recbinarysearch(value, mylist, mid + 1, right)
+    elif mylist[mid] > value:
+        return recbinarysearch(value, mylist, left, mid - 1)
+    elif mylist[mid] == value:
+        return mid
+    else:
+        return None
+    
+    
 
 a = [1,3,5,7,9,11,13,15]
 
