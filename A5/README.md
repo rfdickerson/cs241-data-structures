@@ -12,6 +12,10 @@ for the puzzle and a goal state, and your solver will test all possible
 strategies for solving the puzzle, and return a step by step process for
 solving the puzzle.
 
+Your grade is determined by the number of tests in `TestEightPuzzle.py` that
+your implementation passes. **Extra credit** is available for students whose
+code also passes the tests in `TestFifteenPuzzle.py`!
+
 ![_(above)_ A sliding puzzle of dimensions (3, 3)](8-puzzle-states.png)
 
 # Specification
