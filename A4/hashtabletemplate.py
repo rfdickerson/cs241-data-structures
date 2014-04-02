@@ -46,11 +46,6 @@ class Hashtable (object):
         pass
 
 
-    def getBucketSizes(self):
-        """ yield the sizes of each bucket as an iterator"""
-
-        pass
-
     def __len__(self):
         """ Returns the total number of items in the hash"""
 

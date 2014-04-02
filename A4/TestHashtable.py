@@ -24,7 +24,7 @@ class TestHashtable(unittest.TestCase):
             q[key] = value
         for key, expected in self.buildings.iteritems():
             observed = q[key]
-            self.assertEquals(observed, expected, "small hashtable without your hash function: value changed after being added!\nkey:{}\nexpected value:{}\nobserved value:{}".format(key, value, q[key]))
+            self.assertEquals(observed, expected, "small hashtable without your hash function: value changed after being added!\nkey:{}\nexpected value:{}\nobserved value:{}".format(key, expected, observed))
 
     def testLargeGetSetWithoutFunction(self):
         q = Hashtable(self.testingFunction, 800)
@@ -32,7 +32,7 @@ class TestHashtable(unittest.TestCase):
             q[key] = value
         for key, expected in self.doubles.iteritems():
             observed = q[key]
-            self.assertEquals(observed, expected, "large hashtable without your hash function: value changed after being added!\nkey:{}\nexpected value:{}\nobserved value:{}".format(key, value, q[key]))
+            self.assertEquals(observed, expected, "large hashtable without your hash function: value changed after being added!\nkey:{}\nexpected value:{}\nobserved value:{}".format(key, expected, observed))
 
     def testSmallGetSetWithFunction(self):
         q = Hashtable(hashFunction, 3)
@@ -40,7 +40,7 @@ class TestHashtable(unittest.TestCase):
             q[key] = value
         for key, expected in self.buildings.iteritems():
             observed = q[key]
-            self.assertEquals(observed, expected, "small hashtable with your hash function: value changed after being added! check __getitem__/__setitem__\nkey:{}\nexpected value:{}\nobserved value:{}".format(key, value, q[key]))
+            self.assertEquals(observed, expected, "small hashtable with your hash function: value changed after being added! check __getitem__/__setitem__\nkey:{}\nexpected value:{}\nobserved value:{}".format(key, expected, observed))
 
     def testLargeGetSetWithFunction(self):
         q = Hashtable(hashFunction, 800)
@@ -48,7 +48,7 @@ class TestHashtable(unittest.TestCase):
             q[key] = value
         for key, expected in self.doubles.iteritems():
             observed = q[key]
-            self.assertEquals(observed, expected, "large hashtable with your hash function: value changed after being added! check __getitem__/__setitem__\nkey:{}\nexpected value:{}\nobserved value:{}".format(key, value, q[key]))
+            self.assertEquals(observed, expected, "large hashtable with your hash function: value changed after being added! check __getitem__/__setitem__\nkey:{}\nexpected value:{}\nobserved value:{}".format(key, expected, observed))
 
     def testSmallContains(self):
         q = Hashtable(hashFunction, 3)
