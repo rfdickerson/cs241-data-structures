@@ -14,11 +14,6 @@ class TestPuzzleState(unittest.TestCase):
                 gamestate=[1, 2, 3, 4, 5, 6, 7, 8, None],
                 parent=None,
                 lastMove=None)
-        self.fifteenPuzzle = PuzzleState(
-                dimensions=(4, 4),
-                gamestate=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, None],
-                parent=None,
-                lastMove=None)
 
     def testDimensionsInput(self):
         expected = (3, 3)
@@ -183,15 +178,15 @@ class TestPuzzleSolver(unittest.TestCase):
         self.eightGoal = PuzzleState((3, 3), [None,2,3,1,8,6,7,5,4], None, None)
         self.eightSolver = PuzzleSolver(self.eightInitial, self.eightGoal)
         self.redundantSolver = PuzzleSolver(self.eightInitial, self.eightInitial)
+        self.cardinal = {
+            "north": "up",
+            "south": "down",
+            "west": "left",
+            "east": "right",
+        }
 
     def testSolve(self):
-        expectedElements = [
-                [2, 8, 3, 1, 6, 4, 7, None, 5],
-                [2, 8, 3, 1, 6, 4, 7, 5, None],
-                [2, 8, 3, 1, 6, None, 7, 5, 4],
-                [2, 8, 3, 1, None, 6, 7, 5, 4],
-                [2, None, 3, 1, 8, 6, 7, 5, 4],
-                [None, 2, 3, 1, 8, 6, 7, 5, 4]]
+        expectedElements = (self.eightInitial.gamestate, self.eightGoal.gamestate)
         observedStates = self.eightSolver.solve()
         observedElements = [ x.gamestate for x in observedStates ]
 
@@ -205,37 +200,65 @@ Observed last element of solution chain
 
 Expected last element of solution chain:
 {}'''
-        m_full = '''PuzzleSolver gives the wrong solution chain! Check your solve() method.
-
-Input:
-{}
-
-Observed solution chain:
-{}
-
-Expected solution chain:
-{}'''
         expectedPrintable = '\n'.join([ str(x) for x in expectedElements ])
         observedPrintable = '\n'.join([ str(x) for x in observedElements ])
 
         message = m_solution.format(self.eightInitial, observedPrintable, expectedPrintable)
         self.assertEquals(observedElements[-1], expectedElements[-1], message)
 
-        message = m_full.format(self.eightInitial, observedPrintable, expectedPrintable)
-        self.assertEquals(observedElements, expectedElements, message)
-
     def testMovesToSolve(self):
-        m = '''PuzzleSolver gave the wrong moves, or I couldn't recognise them as English directions. Hint: these tests take north/south/east/west or up/down/left/right and don't care about capitalization.
+        m = '''I couldn't recognise the moves PuzzleSolver returns in movesToSolve() as English directions. Hint: these tests take north/south/east/west or up/down/left/right and don't care about capitalization.
 
 Observed moves list:
 {}'''
-        expectedDirections = (
-                ['right', 'up', 'left', 'up', 'left'],
-                ['east', 'north', 'west', 'north', 'west'])
         rawMoves = self.eightSolver.movesToSolve()
-        observedDirections = [ x.lower() for x in rawMoves ]
+
+        # default to x.lower() if x.lower() isn't in self.cardinal.keys()
+        try:
+            observedDirections = [ self.cardinal[x.lower()] for x in rawMoves ]
+        except KeyError:
+            observedDirections = [ x.lower() for x in rawMoves ]
+
         message = m.format(rawMoves)
-        self.assertIn(observedDirections, expectedDirections, message)
+        goodDirections = all([x in ['left', 'right', 'up', 'down'] for x in observedDirections])
+        self.assertTrue(goodDirections, message)
+
+    def testDoMovesWork(self):
+        m = '''Following PuzzleSolver's reported moves doesn't actually solve the puzzle! Check your movesToSolve() and solve() methods.
+
+Input:
+{}
+
+Reported moves from movesToSolve():
+{}
+
+After following the moves above, we got:
+{}
+
+The actual solution:
+{}'''
+        rawMoves = self.eightSolver.movesToSolve()
+
+        # default to x.lower() if x.lower() isn't in self.cardinal.keys()
+        moves = [ self.cardinal.get(x.lower(), x.lower()) for x in rawMoves ]
+
+        initialVisual = str(self.eightInitial)
+        for move in moves:
+
+            # table-driven testing is hip now, just ask Nigel Tao (or ken)
+            # https://code.google.com/p/go-wiki/wiki/TableDrivenTests
+            moveFunctions = {
+                "up": self.eightInitial.moveUp,
+                "down": self.eightInitial.moveDown,
+                "left": self.eightInitial.moveLeft,
+                "right": self.eightInitial.moveRight,
+            }
+
+            # execute the tabled function
+            self.eightInitial = moveFunctions[move]()
+
+        message = m.format(initialVisual, rawMoves, self.eightInitial, self.eightGoal)
+        self.assertEquals(self.eightInitial, self.eightGoal, message)
 
     def testAlreadySolvedMoves(self):
         m = '''PuzzleSolver did something unexpected when the initial and goal PuzzleStates are the same.
