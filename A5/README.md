@@ -1,6 +1,6 @@
 # Puzzle Solver
 
-* Due: April 7, 2014
+* Due: 11:59 PM EST April 8, 2014
 * Deliverables: slidingpuzzle.py
 
 # Overview
