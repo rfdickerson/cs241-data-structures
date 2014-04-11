@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Generated Map</h1>
+
+<canvas id="mapCanvas" width="940" height="400"></canvas>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+<h4>Generate World</h4>
+
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+    <label class="col-sm-2 control-label" for="mapwidth">Width</label>
+    <div class="col-sm-10">
+    <select class="form-control" id="mapwidth">
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+        <option>60</option>
+        <option>70</option>
+        <option>80</option>
+    </select>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label" for="mapheight">Height</label>
+    <div class="col-sm-10">
+    <select class="form-control" id="mapheight">
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+    </select>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn" type="button" id="genbutton">Generate World</button>
+    </div>
+</form>
+
+</div>
+</div>
+
+<script>
+</script>
+
+<script type="text/javascript" src="static/js/maprender.js"/>
+
+{% endblock %}
