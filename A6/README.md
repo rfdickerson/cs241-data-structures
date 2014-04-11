@@ -5,6 +5,8 @@ A-star Pathfinding Algorithm
 This project will teach you how to use a simple heuristic in order to
 efficiently search for a path through a map and avoiding obstacles.
 
+Refer to the following guide: [A star for Beginners](http://www.policyalmanac.org/games/aStarTutorial.htm)
+
 Overview of the steps are as follows:
 
 - Create a PriorityQueue class in the astar package
