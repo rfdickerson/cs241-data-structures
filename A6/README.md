@@ -1,16 +1,22 @@
-=============================
 A-star Pathfinding Algorithm
 =============================
 
-Deliverables:
-The entire root directory for A6 including the app/ templates/ static/ directories zipped.
+Deliverables
+--------------
 
-Due: April 25, 2014 11:59AM
+The entire root directory for A6 including the app/ templates/ static/
+directories zipped.
+
+Due: 
+-------
+
+April 25, 2014 11:59AM
 
 This project will teach you how to use a simple heuristic in order to
 efficiently search for a path through a map and avoiding obstacles.
 
-Refer to the following guide: [A star for Beginners](http://www.policyalmanac.org/games/aStarTutorial.htm)
+Refer to the following guide: [A star for
+Beginners](http://www.policyalmanac.org/games/aStarTutorial.htm)
 
 Overview of the steps are as follows:
 
