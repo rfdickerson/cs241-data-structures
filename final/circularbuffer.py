@@ -9,11 +9,11 @@ class CircularBuffer (object):
         self.num = 0
         
     def push (self, value):
-        # pushes the value to the circular buffer
+        # pushes the value to the end of the circular buffer
         pass
 
     def pop (self):
-        # returns the value at the end of the buffer
+        # returns the value at the beginning of the buffer
         pass
 
     def __len__(self):
