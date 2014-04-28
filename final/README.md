@@ -34,6 +34,12 @@ For decoding the compressed output:
 
 I was able to achieve roughly 15% compression ratio using the LZW algorithm for this text. Assume spaces and other white space as well as all punctuation are symbols like any other letter.
 
+FAQ:
+
++ Does the decompressed text have to be exactly the same as the original? Do I need to consider punctuation, whitespace, and case?
+
+Yes, treat every symbol whether it be a letter or whitespace as a symbol in the prefix string.
+
 Signal Processing
 ----------------------
 
