@@ -16,14 +16,14 @@ Text Archiver
 + Fundamental Data Structure: Associative array (Dictionary)
 + Deliverable: textarchiver.py
 
-You are tasked to create a class for compression and decompression of text for ebooks. Plain-text books encoded as a long string will serve as input to the compress method. As new prefix chains are discovered that are not already in the dictionary, those prefixes will be appended to the table. Inside of the data directory is Oliver Twist by Charles Dickins.  You will employ one of the most popular and oldest entropy encoders called the LZW algorithm. The encoding step works as follows:
+You are tasked to create a class for compression and decompression of text for ebooks. Plain-text books encoded as a long string will serve as input to the compress method. As new candidate prefix strings are discovered that are not already in the dictionary, those prefixe candidates will be appended to the table. Inside of the data directory is Oliver Twist by Charles Dickins.  You will employ one of the most popular and oldest entropy encoders called the LZW algorithm. The encoding step works as follows:
 
 + Assume a dictionary is initially empty and used as a symbol table
 + For every character in an input string:
-+ Append the character to a 'prefix' string
++ Append the character to a candidate 'prefix' string
 + If prefix exists already exists in the dictionary, continue
 + Otherwise, add the prefix to the dictionary with a unique number id describing it
-+ Next, place that prefix symbol down to output, and clear the string, and repeat
++ Next, place that prefix symbol down to output, and clear the prefix string, and repeat
     
 For decoding the compressed output:
 
