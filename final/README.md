@@ -32,7 +32,7 @@ For decoding the compressed output:
 + For each integer in the input,
 + Append the character value found in the decodeTable
 
-I was able to achieve roughly 15% compression ratio using the LZW algorithm for this text.
+I was able to achieve roughly 15% compression ratio using the LZW algorithm for this text. Assume spaces and other white space as well as all punctuation are symbols like any other letter.
 
 Signal Processing
 ----------------------
