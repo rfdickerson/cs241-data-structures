@@ -1,10 +1,9 @@
-
 class Node (object):
     
     def __init__(self, letter):
         self.letter = letter
         self.children = [None] * 26
-        self.isword = False
+        self.isWord = False
 
 
 class Trie (object):
