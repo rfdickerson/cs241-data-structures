@@ -44,6 +44,10 @@ FAQ:
 
 > For the compression stage, you should store the prefixes as keys, and ids as the value. During decompression the whole dictionary is flipped- so ids become the keys, and the prefixes the values.
 
++ I got a compression ratio of 0.00011, is that good?
+
+> If you got that kind of compression ratio, you have created one amazing entropy encoder! More likely, however, your decompressed string does not match your input exactly.
+
 Signal Processing
 ----------------------
 
@@ -93,3 +97,7 @@ FAQ
 + My program is took 30 minutes to compress Oliver Twist
 
 > This is an excellent example of how hashtables can speed things up. Make sure you use the prefix string as the key in the Dictionary, and the index value as the value. Not the other way around. O(1) vs O(n) really makes a difference, since you're doing that operation roughly n times. So you are dealing with O(1) vs O(n^2) total time.
+
++ There are some words with foreign characters or just whitespace, how do I handle that?
+
+> There might be a line in the list of English words that is all whitespace. Disregard that one when loading the words into the trie. You will not be evaluated on French loan words with the accent aigu. However, they could be treated like a letter like any other.
