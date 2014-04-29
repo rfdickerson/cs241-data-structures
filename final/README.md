@@ -56,6 +56,26 @@ Circular buffers are essentially fixed-size arrays. Logically, they are a specif
 
 ![Circular Buffer](data/queue.gif)
 
+FAQ
+
++ What should you pop when the circular buffer is empty?
+
++ What exactly happens when I push into a filled buffer?
+
+consider the array
+
+[10,8,3,12]
+
+s is at 1, so the logical view of the buffer would therefore be [8,3,12,10]
+
+You push 20 into the buffer
+
+the array now looks like:
+
+[10,20,3,12]
+
+s is now 2, therefore the logical view of the buffer is now [3, 12, 10, 20]
+
 Spell Checker
 ---------------------
 
