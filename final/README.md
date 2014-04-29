@@ -60,6 +60,8 @@ FAQ
 
 + What should you pop when the circular buffer is empty?
 
+Zero 
+
 + What exactly happens when I push into a filled buffer?
 
 consider the array
