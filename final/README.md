@@ -38,11 +38,11 @@ FAQ:
 
 + Does the decompressed text have to be exactly the same as the original? Do I need to consider punctuation, whitespace, and case?
 
-Yes, treat every symbol whether it be a letter or whitespace as a symbol in the prefix string.
+> Yes, treat every symbol whether it be a letter or whitespace as a symbol in the prefix string.
 
 + What exactly is stored in the prefix dictionary?
 
-For the compression stage, you should store the prefixes as keys, and ids as the value. During decompression the whole dictionary is flipped- so ids become the keys, and the prefixes the values.
+> For the compression stage, you should store the prefixes as keys, and ids as the value. During decompression the whole dictionary is flipped- so ids become the keys, and the prefixes the values.
 
 Signal Processing
 ----------------------
@@ -87,3 +87,9 @@ Spell Checker
 Many operations require very fast lookups of strings. One classic application of this is for spell checking in an application. Spell checking should be executed after the completion of writing each word. Checking to see if the word exists in a list of correctly spelled words becomes slow if the number of words in the dictionary are large. Therefore, typically a specific kind of data structure called a trie (named for reTrieval) is used for this purpose. The trie is a special kind of tree where there are 26 children for each node. Each node has a boolean flag for whether ending at that particular letter in the tree represents a correctly spelled word or not. If the next letter is a 'c', make sure that you visit the node stored at children[2]. You can remove all non-letter symbols such as apostrophes before adding to the trie, and also upon spell checking. 
 
 ![Circular Buffer](data/trie.png)
+
+FAQ
+
++ My program is took 30 minutes to compress Oliver Twist
+
+> This is an excellent example of how hashtables can speed things up. Make sure you use the prefix string as the key in the Dictionary, and the index value as the value. Not the other way around. O(1) vs O(n) really makes a difference, since you're doing that operation roughly n times. So you are dealing with O(1) vs O(n^2) total time.
