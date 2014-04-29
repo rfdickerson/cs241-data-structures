@@ -16,7 +16,7 @@ Text Archiver
 + Fundamental Data Structure: Associative array (Dictionary)
 + Deliverable: textarchiver.py
 
-You are tasked to create a class for compression and decompression of text for ebooks. Plain-text books encoded as a long string will serve as input to the compress method. As new candidate prefix strings are discovered that are not already in the dictionary, those prefixe candidates will be appended to the table. Inside of the data directory is Oliver Twist by Charles Dickins.  You will employ one of the most popular and oldest entropy encoders called the LZW algorithm. The encoding step works as follows:
+You are tasked to create a class for compression and decompression of text for ebooks. Plain-text books encoded as a long string will serve as input to the compress method. As new candidate prefix strings are discovered that are not already in the dictionary, those prefix candidates will be appended to the table. Inside of the data directory is Oliver Twist by Charles Dickins.  You will employ one of the most popular and oldest entropy encoders called the LZW algorithm. The encoding step works as follows:
 
 + Assume a dictionary is initially empty and used as a symbol table
 + For every character in an input string:
@@ -39,6 +39,10 @@ FAQ:
 + Does the decompressed text have to be exactly the same as the original? Do I need to consider punctuation, whitespace, and case?
 
 Yes, treat every symbol whether it be a letter or whitespace as a symbol in the prefix string.
+
++ What exactly is stored in the prefix dictionary?
+
+For the compression stage, you should store the prefixes as keys, and ids as the value. During decompression the whole dictionary is flipped- so ids become the keys, and the prefixes the values.
 
 Signal Processing
 ----------------------
