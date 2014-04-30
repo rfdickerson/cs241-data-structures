@@ -102,6 +102,8 @@ FAQ
 
 > This is an excellent example of how hashtables can speed things up. Make sure you use the prefix string as the key in the Dictionary, and the index value as the value. Not the other way around. O(1) vs O(n) really makes a difference, since you're doing that operation roughly n times. So you are dealing with O(1) vs O(n^2) total time.
 
-+ There are some words with foreign characters or just whitespace, how do I handle that?
++ There are some words with apostrophes or foreign characters , how do I handle that?
+
+> A simple way to disregard any character that is not one of the 26 is to compute the ord of character (minus the appropriate offset). If the number is not between 0 and 25, then don't do anything just move onto the next character.
 
 > There might be a line in the list of English words that is all whitespace. Disregard that one when loading the words into the trie. You will not be evaluated on French loan words with the accent aigu. However, they could be treated like a letter like any other.
