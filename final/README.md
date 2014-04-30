@@ -48,6 +48,10 @@ FAQ:
 
 > If you got that kind of compression ratio, you have created one amazing entropy encoder! More likely, however, your decompressed string does not match your input exactly.
 
++ I got a compression ratio of 0.158, is that good?
+
+> That's what I got, too. If you get below 20%, I think you're good. Let me know if you get something in the 10% range, though.
+
 Signal Processing
 ----------------------
 
