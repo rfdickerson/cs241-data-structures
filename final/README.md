@@ -86,6 +86,10 @@ FAQ
 
 > s is now 2, therefore the logical view of the buffer is now [3, 12, 10, 20]
 
++ ***Do I yield all the values in the circular buffer, even the zeros?***
+
+> Only yield the values that you pushed into the buffer, then stop iterating. If you insert [3,4,5] into a buffer of size 5. Your iter should only yield 3,4,5- and not the final 2 zeros.
+
 Spell Checker
 ---------------------
 
