@@ -10,6 +10,15 @@ Rules
 + You are to work alone on these problems
 + You cannot look for solutions (code) to these problems
 
++ ***How do I submit?***
+
+> Email your TA with circularbuffer.py, trie.py, and textarchiver.py. The other files aren't needed.
+
++ ***Can I change signalprocessor.py, spellchecker.py, or constructors or anything else than the methods specified?***
+
+> No, we need you to conform to the specs and testing programs we provided.
+
+
 Text Archiver
 ----------------
 
@@ -89,6 +98,24 @@ FAQ
 + ***Do I yield all the values in the circular buffer, even the zeros?***
 
 > Only yield the values that you pushed into the buffer, then stop iterating. If you insert [3,4,5] into a buffer of size 5. Your iter should only yield 3,4,5- and not the final 2 zeros.
+
++***My circular buffer for sure works, but I'm getting a different output in signalprocessor***
+
+> Each iteration, a new value is inserted into the buffer.
+
+> So the first value printed would be
+
+> 10*1.0 = 10
+
+> next 20 is inserted,
+
+> so 10*1.0 + 20*0.2 = 14.0
+
+> next, 30 is inserted so:
+
+> 10 * 1.0 + 20*0.2 + 30*0.10 = 17.0
+
+> and so on...
 
 Spell Checker
 ---------------------
