@@ -1,6 +1,8 @@
 CS241 Final Exam
 ===================
 
+Instructor: Dr. Robert F. Dickerson
+
 Posted: Monday  April 28
 Due:    Friday  May 2
 
